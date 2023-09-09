@@ -10,4 +10,10 @@ describe('Class', function () {
 		const customer: Customer = new Customer();
 		const order = new Order();
 	});
+
+	
+	it('should can create constructors', function () {
+		new Customer();
+		new Customer();
+	});
 });
