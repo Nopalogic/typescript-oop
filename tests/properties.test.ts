@@ -23,4 +23,9 @@ describe('Properties', () => {
 		console.info(customer.age);
 		console.info(customer);
 	});
+	
+	it('should can have methods', () => {
+		const customer = new Customer(1, 'Naufal');
+		customer.sayHello('Asep');
+	});
 });
