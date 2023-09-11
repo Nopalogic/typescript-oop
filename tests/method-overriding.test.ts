@@ -6,14 +6,15 @@ describe('Method Overriding', () => {
 			this.name = name;
 		}
 
-		sayHello(name: string) {
-			console.info(`Hello ${name}, I'm ${this.name}`);
+		sayHello(name: string): void {
+			console.info(`Hello ${name}, my name is ${this.name}`);
 		}
 	}
 
 	class Manager extends Employee {
 		sayHello(name: string): void {
-			console.info(`Hello ${name}, I'm ${this.name}, I an your manager`);
+			super.sayHello(name);
+			console.info(`And, I am your manager`);
 		}
 	}
 
