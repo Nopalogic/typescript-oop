@@ -1,4 +1,4 @@
-describe('Getter and Setter', () => {
+describe('Inheritance', () => {
 	class Employee {
 		name: string;
 
