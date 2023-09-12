@@ -7,7 +7,27 @@ describe('Polymorphism', () => {
 	class VicePresident extends Manager {}
 
 	function sayHello(employee: Employee): void {
-		console.info(`Hello ${employee.name}`);
+		if (employee instanceof VicePresident) {
+			const vicePresident = employee as VicePresident;
+			console.info(`Hello VP ${vicePresident.name}`);
+		} else if (employee instanceof Manager) {
+			const manager = employee as Manager;
+			console.info(`Hello Manager ${manager.name}`);
+		} else {
+			console.info(`Hello Employee ${employee.name}`);
+		}
+	}
+
+	function sayHelloWrong(employee: Employee): void {
+		if (employee instanceof Manager) {
+			const manager = employee as Manager;
+			console.info(`Hello Manager ${manager.name}`);
+		} else if (employee instanceof VicePresident) {
+			const vicePresident = employee as VicePresident;
+			console.info(`Hello VP ${vicePresident.name}`);
+		} else {
+			console.info(`Hello Employee ${employee.name}`);
+		}
 	}
 
 	it('should support polymorphism', () => {
@@ -25,5 +45,11 @@ describe('Polymorphism', () => {
 		sayHello(new Employee('Ucup'));
 		sayHello(new Manager('Udin'));
 		sayHello(new VicePresident('Asep'));
+	});
+
+	it('should wrong method parameter polmorphism', () => {
+		sayHelloWrong(new Employee('Ucup'));
+		sayHelloWrong(new Manager('Udin'));
+		sayHelloWrong(new VicePresident('Asep'));
 	});
 });
